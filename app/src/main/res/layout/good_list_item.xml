@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#AFFFFFFF"
+    android:paddingLeft="10dp"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp"
+    android:paddingRight="10dp"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/good_item_img"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_vertical"
+        app:placeholderImage="@drawable/notification_template_icon_bg"
+        app:placeholderImageScaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="5dp"
+        android:paddingRight="5dp">
+
+        <TextView
+            android:id="@+id/good_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dip"
+            android:paddingLeft="10dp"
+            android:text="商品名称" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/good_item_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dip"
+                android:paddingLeft="10dp"
+                android:text="单价"/>
+
+            <LinearLayout
+                android:gravity="right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView android:clickable="true"
+                    android:id="@+id/good_item_minus"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:textStyle="bold"
+                    android:background="@mipmap/button_minus"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
+
+                <TextView android:text="0"
+                    android:id="@+id/good_item_count"
+                    android:minWidth="20dp"
+                    android:visibility="gone"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView android:clickable="true"
+                    android:id="@+id/good_item_add"
+                    android:textStyle="bold"
+                    android:background="@mipmap/button_add"
+                    android:gravity="center"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

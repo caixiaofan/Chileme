@@ -1,0 +1,124 @@
+@startuml
+
+class SplashScreenActivity extends Activity{
+    int _splashTime
+    public void onCreate(Bundle savedInstanceState)
+}
+
+class mSplashScreenHandler implements Runnable{
+        void run()
+}
+
+SplashScreenActivity *-- mSplashScreenHandler
+SplashScreenActivity --> MainActivity
+
+class MainActivity extends AppCompatActivity{
+    FrameLayout mHomeContent
+    RadioGroup mHomeRadioGroup
+    RadioButton mHomeHomeRb
+    RadioButton mHomeOrderRb
+    RadioButton mHomeMeRb
+    FragmentStatePagerAdapter mFragments
+    void onCreate(Bundle savedInstanceState)
+    void onStop()
+    void VolleyPost()
+    void initView()
+}
+
+class HomeFragment extends Fragment{
+    private BGABanner mBGABanner;
+    private List<View> mViews;
+    private Engine mEngine;
+    private SimpleAdapter mAdapter;
+    private List<Map<String, Object>> shop_list
+    void onCreate(Bundle savedInstanceState)
+    void onStop()
+    View onCreateView()
+    void initBGABanner(View mView)
+    List<View> getViews(int cnt)
+    void initViews(View mView)
+    void VolleyPost()
+}
+
+class MeFragment extends Fragment{
+    void onCreate(Bundle savedInstanceState)
+    View onCreateView()
+    void initView(View mView)
+}
+
+class OrderFragment extends Fragment{
+    SimpleAdapter mAdapter
+    PullToRefreshListView mPullToRefreshListView
+    List<String> str
+    List<Map<String, Object>> order_list
+    void onCreate(Bundle savedInstanceState)
+    void onStop()
+    View onCreateView()
+    void initPTRListView(View mView)
+    void initViews(View mView)
+    void VolleyPost()
+}
+
+HomeFragment *-- MainActivity
+MeFragment *-- MainActivity
+OrderFragment *-- MainActivity
+
+
+class FavouriteDetailActivity extends Activity {
+    List<Map<String, Object>> favourite_list
+    SimpleAdapter mAdapter
+    void onCreate(Bundle savedInstanceState)
+    void onStop()
+    void VolleyPost()
+}
+
+MeFragment --> FavouriteDetailActivity
+
+class OrderDetailActivity extends Activity {
+    SimpleAdapter mAdapter
+    List<Map<String, Object>> goods_list
+    void onCreate(Bundle savedInstanceState)
+    void onStop()
+    void VolleyPost()
+}
+
+OrderFragment --> OrderDetailActivity
+
+class ShopDetailActivity extends Activity implements View.OnClickListener {
+    ImageView imgCart
+    ViewGroup anim_mask_layout
+    RecyclerView rvSelected
+    TextView tvCount
+    TextView tvCost
+    TextView tvSubmit
+    TextView tvTips
+    BottomSheetLayout bottomSheetLayout
+    View bottomSheet
+    StickyListHeadersListView listView
+    ArrayList<GoodsItem> dataList
+    SparseArray<GoodsItem> selectedList
+    SparseIntArray groupSelect
+    GoodsAdapter myAdapter
+    SelectAdapter selectAdapter
+    NumberFormat nf
+    Handler mHanlder
+    void onCreate(Bundle savedInstanceState)
+    void initView()
+    void playAnimation(int[] start_location)
+    Animation createAnim(int startX, int startY)
+    addViewToAnimLayout(final ViewGroup vg, final View view, int[] location)
+    setAnim(final View v, int[] start_location)
+    void onClick(View v)
+    void add(GoodsItem item,boolean refreshGoodList)
+    void remove(GoodsItem item,boolean refreshGoodList)
+    void update(boolean refreshGoodList)
+    void clearCart()
+    int getSelectedItemCountById(int id)
+    View createBottomSheetView()
+    void showBottomSheet()
+}
+
+HomeFragment --> ShopDetailActivity
+
+
+@enduml

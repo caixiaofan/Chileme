@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/homefragment_background"
+    android:id="@+id/containerLayout">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp"
+        android:id="@+id/shop_intro"
+        android:background="@color/background_orange">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/shop_detail_shop_img"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_vertical"
+            app:placeholderImage="@drawable/notification_template_icon_bg"
+            app:placeholderImageScaleType="centerCrop" />
+
+        <TextView
+            android:layout_height="match_parent"
+            android:paddingLeft="15dp"
+            android:textSize="20dip"
+            android:id="@+id/shop_detail_shop_name"
+            android:layout_width="170dp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/awesome_gray"/>
+
+        <View
+            android:layout_height="match_parent"
+            android:layout_width="30dp" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:id="@+id/shop_detail_is_favourite"
+            android:src="@android:drawable/btn_star"
+            android:clickable="true" />
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/shop_detail_list"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/shop_intro"
+        android:layout_above="@+id/bottom"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:background="#a0000000"
+        android:id="@+id/bottom"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:gravity="center_vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_height="50dp">
+
+        <RelativeLayout
+            android:layout_width="60dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_centerInParent="true"
+                android:src="@mipmap/icon_cart"
+                android:layout_width="32dp"
+                android:id="@+id/cart_icon"
+                android:layout_height="32dp" />
+
+            <TextView android:gravity="center"
+                android:id="@+id/tvCount"
+                android:layout_marginTop="5dp"
+                android:textColor="#fff"
+                android:text="1"
+                android:visibility="gone"
+                android:layout_marginRight="5dp"
+                android:textSize="12sp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/circle_red"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+        <TextView android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:text="￥ 0"
+            android:textSize="20sp"
+            android:textColor="#fff"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/tvCost"
+            android:layout_height="wrap_content" />
+
+        <TextView android:textColor="#fff"
+            android:layout_width="wrap_content"
+            android:text="￥20元起送"
+            android:id="@+id/tvTips"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:layout_height="match_parent" />
+
+        <TextView android:textColor="#fff"
+            android:layout_width="120dp"
+            android:background="@color/background_orange"
+            android:text="去结算"
+            android:onClick="onClick"
+            android:clickable="true"
+            android:id="@+id/tvSubmit"
+            android:visibility="gone"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</RelativeLayout>

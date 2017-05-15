@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="beforeDescendants">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingRight="15dp"
+        android:background="@drawable/card_background_selector"
+        android:descendantFocusability="afterDescendants">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/home_shop_img"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                app:placeholderImage="@drawable/notification_template_icon_bg"
+                app:placeholderImageScaleType="centerCrop" />
+
+            <!-- 定义一个竖直方向的LinearLayout,把QQ呢称与说说的文本框设置出来 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/home_shop_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="8dp"
+                    android:textColor="#1D1D1C"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/home_shop_intro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="8px"
+                    android:textColor="#B4B4B9"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
